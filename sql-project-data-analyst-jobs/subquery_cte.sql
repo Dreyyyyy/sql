@@ -118,7 +118,9 @@ WITH remote_jobs_counting AS(
     INNER JOIN
         skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
     WHERE
-        job_postings_fact.job_work_from_home = TRUE
+        job_postings_fact.job_work_from_home = TRUE AND
+        job_postings_fact.job_title_short = 'Data Analyst'
+
     GROUP BY
         skills_dim.skill_id
 )
